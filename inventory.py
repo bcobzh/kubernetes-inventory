@@ -93,14 +93,19 @@ def get_velero_backups():
     try:
         api_velero_backup = api_custom_object.list_cluster_custom_object("velero.io","v1","backups")
         return api_velero_backup
-    except ResourceNotFoundError:
+    except Exception as e:
+        print("Unable to list Velero backups")
+        print(e)
         return []
 
 def get_velero_schedules():
     try:
         api_velero_schedules = api_custom_object.list_cluster_custom_object("velero.io","v1","schedules")
         return api_velero_schedules
-    except ResourceNotFoundError:
+    except Exception as e:
+        print("Unable to list Velero schedules")
+        print(e)
+        return []
         return []
 
 
