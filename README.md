@@ -31,7 +31,7 @@ helm repo add lbn https://linkbynet.github.io/helm-charts
 helm upgrade --install kubernetes-inventory \
         --set aws.access_key_id=… \
         --set aws.secret_access_key=… \
-        --set s3.bucket=… \
+        --set aws.s3.bucket=… \
         --set kube.cluster=… \
         --set lbnref=… \
         … \ 
@@ -46,9 +46,9 @@ helm upgrade --install kubernetes-inventory \
 | inventory.tag   | string | `latest` | Image tag |
 | aws.access_key_id | string | `nil` | AWS access key id |
 | aws.secret_access_key | string | `nil` | AWS secret access key |
-| s3.bucket | string | `nil` | bucket name |
-| s3.folder | string | `Kubernetes` | bucket folder |
-| s3.region | string | `eu-west-1` | bucket folder |
+| aws.s3.bucket | string | `nil` | bucket name |
+| aws.s3.folder | string | `Kubernetes` | bucket folder |
+| aws.s3.region | string | `eu-west-1` | bucket folder |
 | proxy | string | `nil` | HTTP/HTTPS proxy |
 | kube.cluster | string | `nil` | Cluster name |
 | lbnref | string | `nil` | Cluster identifier (CMDB Id…) |

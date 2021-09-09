@@ -1,7 +1,9 @@
 #!/usr/bin/env python3 
 import os
 import boto3
+import logging
 from botocore.config import Config
+boto3.set_stream_logger('', logging.INFO)
 
 CLUSTER = os.getenv('CLUSTER')
 BUCKET = os.getenv('S3_BUCKET')
@@ -14,14 +16,7 @@ proxy_definitions = {
     'https': PROXY
 }
 
-my_config = Config({
-    'region_name': REGION,
-    'signature_version': 'v4',
-    'proxies': proxy_definitions
-})
-
-
-s3 = boto3.client('s3')
+s3 = boto3.client('s3',config=Config(proxies=proxy_definitions))
 print(f'push s3://{BUCKET}/{FOLDER}/{CLUSTER}.json')
 s3.upload_file('inventory.json', BUCKET, f'{FOLDER}/{CLUSTER}.json')
 
