@@ -49,6 +49,7 @@ helm upgrade --install kubernetes-inventory \
 | aws.s3.bucket | string | `nil` | bucket name |
 | aws.s3.folder | string | `Kubernetes` | bucket folder |
 | aws.s3.region | string | `eu-west-1` | bucket folder |
+| aws.s3.endpoint | string | `nil` | endpoint url |
 | proxy | string | `nil` | HTTP/HTTPS proxy |
 | kube.cluster | string | `nil` | Cluster name |
 | lbnref | string | `nil` | Cluster identifier (CMDB Id…) |
