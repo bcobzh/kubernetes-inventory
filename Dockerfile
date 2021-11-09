@@ -12,3 +12,4 @@ RUN pip install kubernetes --no-cache-dir invoke boto3 \
     && ./get_helm.sh \
     && rm get_helm.sh
 COPY image-files/ /
+CMD ["/lbn/inventory.sh"]
