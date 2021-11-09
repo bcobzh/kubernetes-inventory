@@ -1,5 +1,16 @@
 {
   "extends": [
     "config:base", ":disableDependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["digest"],
+      "automerge": true,
+      "requiredStatusChecks": null
+    },
+    {
+      "updateTypes": ["major", "minor", "patch"],
+      "enabled": false
+    }
   ]
 }
