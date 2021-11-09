@@ -53,3 +53,4 @@ helm upgrade --install kubernetes-inventory \
 | proxy | string | `nil` | HTTP/HTTPS proxy |
 | kube.cluster | string | `nil` | Cluster name |
 | lbnref | string | `nil` | Cluster identifier (CMDB Id…) |
+
