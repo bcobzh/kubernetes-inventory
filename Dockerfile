@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3-slim@sha256:e70970501aafc3cefaccf8dda39e1ad2f0431f82bbf250d9ce6bd461cc99e10f
+FROM docker.io/library/python:3-slim@sha256:3524d9553dd1ea815d9e3ff07a0ccafe878a9403fb5f9956dc6ad86075ac345f
 # hadolint ignore=DL3008,DL3013
 RUN pip install kubernetes --no-cache-dir invoke boto3 \
     && apt-get update \
