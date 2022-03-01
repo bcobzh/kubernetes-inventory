@@ -21,9 +21,9 @@ except config.ConfigException:
 
 api_core_v1 = client.CoreV1Api()
 api_apps_v1 = client.AppsV1Api()
-api_batchs_v1_beta_1 = client.BatchV1beta1Api()
-api_networking_v1_beta_1 = client.NetworkingV1beta1Api()
-api_extensions_v1_beta_1 = client.ExtensionsV1beta1Api()
+api_batchs = client.BatchV1beta1Api()
+api_networking = client.NetworkingV1beta1Api()
+api_extensions = client.ExtensionsApi()
 api_version = client.VersionApi()
 api_custom_object = client.CustomObjectsApi()
 
@@ -55,16 +55,16 @@ def get_statefulsets(namespace):
     return data.to_dict()
 
 def get_cronjobs(namespace):
-    data = api_batchs_v1_beta_1.list_namespaced_cron_job(namespace=namespace)
+    data = api_batchs.list_namespaced_cron_job(namespace=namespace)
     return data.to_dict()
 
 def get_ingresses(namespace):
     try:
-        data = api_networking_v1_beta_1.list_namespaced_ingress(namespace=namespace)
+        data = api_networking.list_namespaced_ingress(namespace=namespace)
         return data.to_dict()
     except:
         try:
-            data = api_extensions_v1_beta_1.list_namespaced_ingress(namespace=namespace)
+            data = api_extensions.list_namespaced_ingress(namespace=namespace)
             return data.to_dict()
         except:
             print("Unable to list Ingresses for namespace",namespace)
