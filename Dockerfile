@@ -1,6 +1,6 @@
 FROM docker.io/library/python:3-slim@sha256:2d2dd5235df5b831a35438b9537f9147c6588cb802f53720d6c5a473d175ffb1
 # hadolint ignore=DL3008,DL3013
-RUN pip install kubernetes --no-cache-dir invoke boto3 \
+RUN pip install kubernetes==21.7.0 --no-cache-dir invoke boto3 \
     && apt-get update \
     && apt-get install --no-install-recommends -y curl \
     && rm -rf /var/lib/apt/lists/* \
